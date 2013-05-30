@@ -1,0 +1,16 @@
+﻿@model ICollection<AuthenticationClientData>
+
+<h2>Login using an external service</h2>
+
+@using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+    <fieldset id="socialLoginList">
+        <p>
+        @foreach (AuthenticationClientData p in Model)
+        {
+            <input class="btn btn-primary" type="submit" value="@p.AuthenticationClient.ProviderName" />
+        }
+        </p>
+    </fieldset>
+}

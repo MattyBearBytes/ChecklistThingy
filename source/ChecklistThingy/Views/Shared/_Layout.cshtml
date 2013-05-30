@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Checklist Thingy</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/style/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+    </head>
+   <body>
+        <div class="navbar navbar-fixed-top">
+              <div class="navbar-inner">
+                <div class="container-fluid">
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
+                  <a class="brand" href="#">Checklist Thingy</a>          
+                  @Html.Partial("_LoginPartial")
+                  <div class="nav-collapse">
+                    @Html.Partial("_MenuPartial")
+                  </div><!--/.nav-collapse -->
+                </div>
+              </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        @RenderBody()
+                    </div>
+                </div>
+                
+                <div class="modal hide fade" id="mainModal"></div>
+                <hr>
+                <footer>
+                    <div class="row-fluid">
+                        <div class="span4">Checklist Thingy</div>
+                        <div class="span4"></div>
+                        <div class="span4"><p style="text-align: right">Produced by <a href="http://thebearbytes.com.au" target="_blank">The Bear Bytes</a></p></div>
+                    </div>
+                </footer>
+
+            </div>
+
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

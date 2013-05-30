@@ -1,0 +1,34 @@
+﻿@using ChecklistThingy.Helpers
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<section>
+<div class="front-page">
+    <div class="hero-unit">
+        <div class="row">
+            <div class="span12">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="whiteout">
+                            <h1>Recall and be sure!</h1>
+                            <h3>Quick checklists for those moments that need them</h3>
+                        </div>
+                        <br/>
+                        @Html.IconClassActionLink("Learn More", "About", "Home", "icon-question-sign icon-white", "btn btn-info btn-large")
+                        @Html.IconClassActionLink("Register for Free", "Register", "Account", "icon-pencil icon-white", "btn btn-info btn-large")
+                        @Html.IconClassActionLink("Log In", "Login", "Account", "icon-chevron-right icon-white", "btn btn-success btn-large")
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

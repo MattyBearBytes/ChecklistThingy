@@ -1,0 +1,9 @@
+﻿@using ChecklistThingy.Helpers
+
+<ul class="nav">
+    @if (Request.IsAuthenticated)
+    {
+            <li>@Html.IconActionLink("Home", "Index", "Home", "icon-home icon-white")</li>  
+    }
+
+</ul>

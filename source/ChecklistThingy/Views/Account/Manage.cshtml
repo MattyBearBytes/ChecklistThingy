@@ -1,0 +1,32 @@
+﻿@model ChecklistThingy.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Manage Your Account";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+<br/>
+
+@if (ViewBag.StatusMessage.Length > 1 )
+{
+    <span class="alert alert-info">@ViewBag.StatusMessage</span>
+}
+
+<hr/>
+<div class="row">
+    <div class="span3 offset1">
+        <h3>Current Login</h3>
+        <p>
+            You're logged in as <strong>@User.Identity.Name</strong>.
+        </p>
+    </div>
+    <div class="span3">
+        @Html.Partial("_ChangePasswordPartial")
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
