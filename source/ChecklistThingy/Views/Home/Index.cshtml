@@ -15,9 +15,16 @@
                             <h3>Quick checklists for those moments that need them</h3>
                         </div>
                         <br/>
-                        @Html.IconClassActionLink("Learn More", "About", "Home", "icon-question-sign icon-white", "btn btn-info btn-large")
-                        @Html.IconClassActionLink("Register for Free", "Register", "Account", "icon-pencil icon-white", "btn btn-info btn-large")
-                        @Html.IconClassActionLink("Log In", "Login", "Account", "icon-chevron-right icon-white", "btn btn-success btn-large")
+                        @if (Request.IsAuthenticated)
+                        {
+                            @Html.IconClassActionLink("My Checklists", "List", "Checklist", "icon-chevron-right icon-white", "btn btn-success btn-large")      
+                        }
+                        else
+                        {
+                            @Html.IconClassActionLink("Register for Free", "Register", "Account", "icon-pencil icon-white", "btn btn-info btn-large")
+                            @Html.IconClassActionLink("Log In", "Login", "Account", "icon-chevron-right icon-white", "btn btn-success btn-large")                           
+                        }
+
                         <br/>
                         <br/>
                         <br/>
