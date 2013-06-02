@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Web.WebPages.OAuth;
-using ChecklistThingy.Models;
+﻿using Microsoft.Web.WebPages.OAuth;
 
 namespace ChecklistThingy
 {
@@ -23,8 +18,8 @@ namespace ChecklistThingy
                 consumerSecret: "asf");
 
             OAuthWebSecurity.RegisterFacebookClient(
-                appId: "asfd",
-                appSecret: "asf");
+                appId: "648995925117562",
+                appSecret: "e4f6bed3ceb08b673d186bc0096d1ce9");
 
             OAuthWebSecurity.RegisterGoogleClient();
         }
