@@ -9,13 +9,9 @@ namespace ChecklistThingy
             // To let users of this site log in using their accounts from other sites such as Microsoft, Facebook, and Twitter,
             // you must update this site. For more information visit http://go.microsoft.com/fwlink/?LinkID=252166
 
-            OAuthWebSecurity.RegisterMicrosoftClient(
-                clientId: "asfd",
-                clientSecret: "asf");
-
             OAuthWebSecurity.RegisterTwitterClient(
-                consumerKey: "asf",
-                consumerSecret: "asf");
+                consumerKey: "YfQiIJwfNNgNP5wdrbFGQ",
+                consumerSecret: "32FMF5tLWuZSncDv1gtPSvf9n9MNXoE5bTin57k88g");
 
             OAuthWebSecurity.RegisterFacebookClient(
                 appId: "648995925117562",
