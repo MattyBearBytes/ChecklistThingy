@@ -188,6 +188,7 @@
     <Content Include="Content\css\cosmo.min.css" />
     <Content Include="Content\css\original-mvc.css" />
     <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\social-buttons.css" />
     <Content Include="Content\img\glyphicons-halflings-white.png" />
     <Content Include="Content\img\glyphicons-halflings.png" />
     <Content Include="Content\img\pencil-1.jpg" />

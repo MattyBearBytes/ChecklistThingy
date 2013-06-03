@@ -26,7 +26,10 @@ namespace ChecklistThingy
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/style/css").Include("~/Content/css/site.css", "~/Content/css/cosmo.css", "~/Content/css/bootstrap-responsive.css"));
+            bundles.Add(new StyleBundle("~/Content/style/css").Include(
+                "~/Content/css/site.css", 
+                "~/Content/css/cosmo.css", 
+                "~/Content/css/bootstrap-responsive.css"));
 
             /* bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                          "~/Content/themes/base/jquery.ui.core.css",

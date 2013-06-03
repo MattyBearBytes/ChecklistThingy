@@ -1,16 +1,10 @@
-﻿@model ICollection<AuthenticationClientData>
+﻿@using ChecklistThingy.Helpers
+@model ICollection<AuthenticationClientData>
 
 <h2>Login using an external service</h2>
 
-@using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
-{
-    @Html.AntiForgeryToken()
-    <fieldset id="socialLoginList">
-        <p>
-        @foreach (AuthenticationClientData p in Model)
-        {
-            <input class="btn btn-primary" type="submit" value="@p.AuthenticationClient.ProviderName" />
-        }
-        </p>
-    </fieldset>
-}
+<fieldset id="socialLoginList">
+    <p>@Html.IconClassActionLink("Connect with Facebook", "ExternalLogin", "Account", "icon-facebook icon-white", "btn btn-facebook", new { returnUrl = ViewBag.ReturnUrl, provider = "facebook" })</p>
+    <p>@Html.IconClassActionLink("Connect with Twitter", "ExternalLogin", "Account", "icon-twitter icon-white", "btn btn-twitter", new { returnUrl = ViewBag.ReturnUrl, provider = "twitter" })</p>
+    <p>@Html.IconClassActionLink("Connect with Google", "ExternalLogin", "Account", "icon-google-plus icon-white", "btn btn-google-plus", new { returnUrl = ViewBag.ReturnUrl, provider = "google" })</p>
+</fieldset>
