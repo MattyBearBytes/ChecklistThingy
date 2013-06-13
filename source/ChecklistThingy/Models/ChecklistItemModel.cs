@@ -7,6 +7,6 @@ namespace ChecklistThingy.Models
 {
     public class ChecklistItemModel : BaseModel
     {
-        public ChecklistModel Checklist { get; set; }
+        public int ChecklistId { get; set; }
     }
 }

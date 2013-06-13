@@ -1,0 +1,41 @@
+﻿@using ChecklistThingy.Helpers
+@model ChecklistThingy.Models.ChecklistItemModel
+
+@{
+    ViewBag.Title = (string)ViewBag.FormMode + " Item";
+}
+
+<h1>@ViewBag.Title</h1>
+<hr/>
+
+<section id="editForm">
+@using (Html.BeginForm((string)ViewBag.FormMode, "Item", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        
+        @Html.HiddenFor(m => m.Id)
+
+        <div class="control-group">
+            <label class="control-label">Name</label>
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+        </div>
+        
+        @Html.ValidationSummary(true)
+
+        <div class="form-actions">
+            @Html.ClassActionLink("Cancel", "List", "Item", "btn", new { id = Model.ChecklistId })
+            &nbsp;&nbsp
+            @if ((string) ViewBag.FormMode == "Edit")
+            {
+                @Html.ClassActionLink("Delete", "Delete", "Item", "btn btn-danger")
+                @:&nbsp;&nbsp;
+            }
+            <input class="btn btn-primary" type="submit" value="Save" />
+        </div>
+        
+    </fieldset>
+}
+</section>

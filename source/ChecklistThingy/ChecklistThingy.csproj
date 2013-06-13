@@ -166,9 +166,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChecklistController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataAccess\BaseDao.cs" />
     <Compile Include="DataAccess\ChecklistDao.cs" />
+    <Compile Include="DataAccess\ItemDao.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -305,6 +307,8 @@
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Views\Checklist\List.cshtml" />
     <Content Include="Views\Checklist\Edit.cshtml" />
+    <Content Include="Views\Item\Edit.cshtml" />
+    <Content Include="Views\Item\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

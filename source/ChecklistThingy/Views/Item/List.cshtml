@@ -1,0 +1,44 @@
+﻿@using ChecklistThingy.Helpers
+@model IEnumerable<ChecklistThingy.Models.ChecklistItemModel>
+
+@{
+    ViewBag.Title = "List Checklist Items";
+}
+
+<div class="row-fluid">
+    <div class="span9">
+        <h1>@ViewBag.Title</h1>
+    </div>
+    <div class="span3">
+        @Html.IconClassActionLink("Back to Checklists", "List", "Checklist", "icon-chevron-left icon-white", "btn btn-success btn-large pull-right")     
+        @Html.IconClassActionLink("New Item", "Add", "Item", "icon-plus-sign icon-white", "btn btn-success btn-large pull-right")     
+    </div>
+</div>
+
+<br/>
+
+<table class="table table-bordered table-condensed table-hover table-striped">
+    <th>
+        Done?
+    </th>
+    <th>
+        Item
+    </th>
+    <th>
+        Action
+    </th>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.CheckBox("chkBox" + item.Id)
+            </td>
+            <td>
+                <i class="icon-th-list"></i> @item.Name
+            </td>
+            <td>
+                @Html.IconClassActionLink("Edit", "Edit", "Item", "icon-edit icon-white", "btn btn-warning", new { id = item.Id })      
+            </td>
+        </tr>
+    }
+</table>
