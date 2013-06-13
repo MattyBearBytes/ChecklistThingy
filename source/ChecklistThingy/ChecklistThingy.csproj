@@ -181,6 +181,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\ChecklistModel.cs" />
     <Compile Include="Models\ChecklistItemModel.cs" />
+    <Compile Include="Models\ListItemsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

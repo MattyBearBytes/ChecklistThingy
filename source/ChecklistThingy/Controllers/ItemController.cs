@@ -13,21 +13,30 @@ namespace ChecklistThingy.Controllers
     public class ItemController : Controller
     {
         private readonly ItemDao _itemDao;
+        private readonly ChecklistDao _checklistDao;
+
 
         public ItemController()
         {
             _itemDao = new ItemDao(WebSecurity.CurrentUserId);
+            _checklistDao = new ChecklistDao(WebSecurity.CurrentUserId);
         }
 
         public ActionResult List(int id)
         {
-            return View(_itemDao.FetchMany(id));
+            var viewModel = new ListItemsViewModel
+            {
+                Checklist = _checklistDao.GetSingle(id),
+                Items = _itemDao.FetchMany(id)
+            };
+
+            return View(viewModel);
         }
 
-        public ActionResult Add()
+        public ActionResult Add(int id)
         {
             ViewBag.FormMode = "Add";
-            return View("Edit", new ChecklistItemModel());
+            return View("Edit", new ChecklistItemModel{ChecklistId = id});
         }
 
         [HttpPost]
@@ -38,7 +47,7 @@ namespace ChecklistThingy.Controllers
                 if (ModelState.IsValid)
                 {
                     _itemDao.Insert(newItem);
-                    return RedirectToAction("List");
+                    return RedirectToAction("List", new { id = newItem.ChecklistId });
                 }
             }
             catch (Exception ex)
@@ -47,7 +56,7 @@ namespace ChecklistThingy.Controllers
             }
 
             ViewBag.FormMode = "Add";
-            return View("Edit");
+            return View("Edit", newItem);
         }
 
         public ActionResult Edit(int id)
@@ -64,7 +73,7 @@ namespace ChecklistThingy.Controllers
                 if (ModelState.IsValid)
                 {
                     _itemDao.Update(newItem);
-                    return RedirectToAction("List");
+                    return RedirectToAction("List", new { id = newItem.ChecklistId });
                 }
             }
             catch (Exception ex)
@@ -73,7 +82,7 @@ namespace ChecklistThingy.Controllers
             }
 
             ViewBag.FormMode = "Edit";
-            return View("Edit");
+            return View("Edit", newItem);
         }
 
     }

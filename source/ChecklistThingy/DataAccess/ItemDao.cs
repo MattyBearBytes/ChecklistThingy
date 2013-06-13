@@ -35,7 +35,7 @@ namespace ChecklistThingy.DataAccess
 
         public void Insert(ChecklistItemModel checklistItem)
         {
-            DataContext.Insert(TableName, IdColumn, new { Name = checklistItem.Name, UserId = UserId });
+            DataContext.Insert(TableName, IdColumn, new { Name = checklistItem.Name, ChecklistId = checklistItem.ChecklistId, UserId = UserId });
         }
 
         public void Update(ChecklistItemModel checklistItem)

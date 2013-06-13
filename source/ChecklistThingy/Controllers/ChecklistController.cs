@@ -47,7 +47,7 @@ namespace ChecklistThingy.Controllers
             }
 
             ViewBag.FormMode = "Add";
-            return View("Edit");
+            return View("Edit", newChecklist);
         }
 
         public ActionResult Edit(int id)
@@ -73,7 +73,7 @@ namespace ChecklistThingy.Controllers
             }
 
             ViewBag.FormMode = "Edit";
-            return View("Edit");
+            return View("Edit", newChecklist);
         }
 
     }
