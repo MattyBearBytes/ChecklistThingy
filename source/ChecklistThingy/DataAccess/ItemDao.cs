@@ -45,7 +45,7 @@ namespace ChecklistThingy.DataAccess
 
         public void Delete(int id)
         {
-            DataContext.Delete(TableName, IdColumn, new { Id = id });
+            DataContext.Delete(TableName, IdColumn, new { Id = id, UserId = UserId });
         }
     }
 }

@@ -85,5 +85,10 @@ namespace ChecklistThingy.Controllers
             return View("Edit", newItem);
         }
 
+        public ActionResult Delete(int recordId, int checklistId)
+        {
+            _itemDao.Delete(recordId);
+            return RedirectToAction("List", new { id = checklistId });
+        }
     }
 }

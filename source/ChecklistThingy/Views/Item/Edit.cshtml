@@ -31,7 +31,7 @@
             &nbsp;&nbsp
             @if ((string)ViewBag.FormMode == "Edit")
             {
-                @Html.ClassActionLink("Delete", "Delete", "Item", "btn btn-danger")
+                @Html.ClassActionLink("Delete", "Delete", "Item", "btn btn-danger", new { checklistId = Model.ChecklistId, recordId = Model.Id })
                 @:&nbsp;&nbsp;
             }
             <input class="btn btn-primary" type="submit" value="Save" />
