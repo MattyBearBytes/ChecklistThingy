@@ -28,7 +28,7 @@ namespace ChecklistThingy.DataAccess
             return DataContext.Query<ChecklistItemModel>(Sql.Builder
                             .Select("*")
                             .From(TableName)
-                            .Where("CheckistId = @0", checklistId)
+                            .Where("ChecklistId = @0", checklistId)
                             .Where("UserId = @0", UserId)
             );
         }
