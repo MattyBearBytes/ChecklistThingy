@@ -7,32 +7,58 @@
 
 <div class="row-fluid">
     <div class="span9">
-        <h1>@ViewBag.Title</h1>
+        <h2>@ViewBag.Title</h2>
     </div>
     <div class="span3">
-        @Html.IconClassActionLink("New Checklist", "Add", "Checklist", "icon-plus-sign icon-white", "btn btn-success btn-large pull-right")     
+        @Html.IconClassActionLink("New Checklist", "Add", "Checklist", "icon-plus-sign icon-white", "btn btn-success pull-right")     
     </div>
 </div>
 
+<p>Hit a checklist below to dive on into it.</p>
 <br/>
 
-<table class="table table-bordered table-condensed table-hover table-striped">
-    <th>
-        Checklist Name
-    </th>
-    <th>
-        Action
-    </th>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <i class="icon-th-list"></i> @item.Name
-            </td>
-            <td>
-                @Html.IconClassActionLink("Perform", "List", "Item", "icon-asterisk icon-white", "btn btn-info", new { id = item.Id })     
-                @Html.IconClassActionLink("Edit", "Edit", "Checklist", "icon-edit icon-white", "btn btn-warning", new { id = item.Id })      
-            </td>
-        </tr>
-    }
+<table class="table table-bordered table-condensed table-hover table-striped" id="checklist-table">
+    <thead>
+        <th class="hide">
+            #
+        </th>
+        <th>
+            Checklist Name
+        </th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="hide">@item.Id</td>
+                <td>
+                    @item.Name
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+<script type="text/javascript">
+
+    window.onload = addRowHandlers;
+
+    function addRowHandlers() {
+        var table = document.getElementById("checklist-table");
+        var rows = table.getElementsByTagName("tr");
+        for (i = 0; i < rows.length; i++) {
+            var currentRow = table.rows[i];
+            var createClickHandler =
+                function (row) {
+                    return function () {
+                        var cell = row.getElementsByTagName("td")[0];
+                        var id = cell.innerHTML;
+                        window.location = '@Url.Action("List", "Item")/' + id;
+                    };
+                };
+
+            currentRow.onclick = createClickHandler(currentRow);
+        }
+    }
+
+</script>

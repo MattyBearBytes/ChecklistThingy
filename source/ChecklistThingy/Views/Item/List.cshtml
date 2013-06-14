@@ -7,38 +7,75 @@
 
 <div class="row-fluid">
     <div class="span6">
-        <h1>@ViewBag.Title</h1>
+        <h2>@ViewBag.Title</h2>
     </div>
     <div class="span6">
-        @Html.IconClassActionLink("New Item", "Add", "Item", "icon-plus-sign icon-white", "btn btn-success pull-right", new { id = Model.Checklist.Id })     
+        @Html.IconClassActionLink("New Item", "Add", "Item", "icon-plus-sign icon-white", "btn btn-success pull-right", new { id = Model.Checklist.Id })    
+        @Html.IconClassActionLink("Rename Checklist", "Edit", "Checklist", "icon-edit icon-white", "btn btn-warning pull-right", new { id = Model.Checklist.Id })      
         @Html.IconClassActionLink("Back to Checklists", "List", "Checklist", "icon-chevron-left icon-white", "btn btn-info pull-right")     
     </div>
 </div>
 
+<p>Hit an item below to toggle checked and unchecked.</p>
 <br/>
 
-<table class="table table-bordered table-condensed table-hover table-striped">
-    <th>
-        Done?
-    </th>
-    <th>
-        Item
-    </th>
-    <th>
-        Action
-    </th>
+<table class="table table-bordered table-condensed table-hover table-striped" id="item-table">
+    <thead>
+        <th class="hide">
+            #
+        </th>
+        <th>
+            Done?
+        </th>
+        <th>
+            Item
+        </th>
+        <th>
+            Action
+        </th>
+    </thead>
     @foreach (var item in Model.Items)
     {
         <tr>
+            <td class="hide">@item.Id</td>
             <td width="30px">
                 @Html.CheckBox("chkBox" + item.Id)
             </td>
             <td>
                 @item.Name
             </td>
-            <td>
-                @Html.IconClassActionLink("Edit", "Edit", "Item", "icon-edit icon-white", "btn btn-warning", new { id = item.Id })      
+            <td width="30px">
+                @Html.IconClassActionLink("", "Edit", "Item", "icon-edit icon-white", "btn btn-warning btn-small", new { id = item.Id })      
             </td>
         </tr>
     }
 </table>
+
+<script type="text/javascript">
+
+    window.onload = addRowHandlers;
+
+    function addRowHandlers() {
+        var table = document.getElementById("item-table");
+        var rows = table.getElementsByTagName("tr");
+        for (i = 0; i < rows.length; i++) {
+            var currentRow = table.rows[i];
+            var createClickHandler =
+                function (row) {
+                    return function () {
+                        var cell = row.getElementsByTagName("td")[0];
+                        var id = cell.innerHTML;
+                        if ($("#chkBox" + id).attr('checked')) {
+                            $("#chkBox" + id).attr('checked', false)
+                        }
+                        else {
+                            $("#chkBox" + id).attr('checked', true)
+                        };
+                    };
+                };
+
+            currentRow.onclick = createClickHandler(currentRow);
+        }
+    }
+
+</script>
