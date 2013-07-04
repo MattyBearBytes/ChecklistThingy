@@ -1,8 +1,12 @@
 ﻿@media (min-width: 1000px) {
     body {
-        padding-top: 60px;
+        padding-top: 50px;
         padding-bottom: 40px;
     }
+}
+
+body {
+    background: rgba(0, 0, 0, 0.075) !important;
 }
 
 .field-validation-error
@@ -11,13 +15,34 @@
 }
 
 .whiteout {
-    background-color: white;
+    background-color: #FFFFFF;
+    border: 1px solid #DADADA;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+    color: #333333;
+    margin-bottom: 40px;
+    padding: 0px;
 }
 
 .front-page > .hero-unit {
-    background-image: url("../img/pencil-3.jpg");
+    background-color: #FFFFFF;
+    background-position: bottom;
+    background-image: url("../img/pencil-2.jpg");
     background-repeat: no-repeat;
-    background-position: center;
     background-size: cover;
+    height: 200px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.letterbox {
+    margin-top: -120px;
+    position: relative;
+}
+
+.buttons-text-letterbox {
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    display: inline; 
 }
 
